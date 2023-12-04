@@ -49,6 +49,66 @@ function calculateDaysPassed(){
    showOutput(html)
    tellTime()
 }
+//-----------------When is your next Birthday?----------------//
+function nextBirthday(){
+   let dob = inputValue()
+   if(!dob){
+      alert('Please Enter your date of birth.')
+      return
+   }
+   let Today = new Date()
+   let nextBirthDate = new Date(dob)
+   console.log(Today)
+   console.log(nextBirthDate)
+
+   let todayTime = Today.getTime()
+   let nextBirthTime = nextBirthDate.getTime()
+   console.log(todayTime)
+   console.log(nextBirthTime)
+   let msDiff =  nextBirthTime - todayTime
+   console.log("msDiff" , msDiff)
+   let daysDiff = msDiff / (1000 * 60 * 60 * 24)//this line may generate floating point number //
+   // we need to remove floating point number by using Math.floor //
+   console.log(daysDiff)
+   let html = "Your next Birth day is ' <span class = text-danger >" + Math.floor(daysDiff) + "</span> ' Days away"
+   showOutput(html)
+   tellTime()
+}
+//-----------------Greet User----------------//
+function greetUser(msg){
+   showOutput( msg)
+   tellTime()
+}
+function greetUserButton(){
+   let userName = prompt("Enter Your Name")
+   // greetUser(userName) 
+   let greetingMessage = "Good "
+   let now = new Date()
+   let hour = now.getHours()
+   if( hour >= 4 && hour < 12 ){
+      greetingMessage += "Morning"
+   }else if( hour >= 12 && hour < 17 ){
+      greetingMessage += "Afternoon"
+   }else if( hour >= 17 && hour < 20 ){
+      greetingMessage += "Evening"
+   }else{
+      greetingMessage += "Night"
+   }
+   let msg = greetingMessage + " " + userName
+   greetUser(msg)        // parameter pass kar rahy ha //
+}function tellTime1(){
+   tellTime()
+}
+//-----------------------------Tell Time 2-----------------------//
+function tellTime2(){
+   tellTime()
+}
+//-----------------------------Tell Time 3-----------------------//
+function tellTime3(){
+   tellTime()
+}
+
+// next button is on working //
 
 
 
