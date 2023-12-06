@@ -107,12 +107,38 @@ function tellTime2(){
 function tellTime3(){
    tellTime()
 }
-
-// next button is on working //
-
-
-
-
+//-----------------Calculate Tax Button----------------//
+function calculateTaxBtn(){
+   var price = +prompt("Enter Price.")
+   var taxRate = 17
+   var tax = calculateTax(price,taxRate)
+   let html = 'Tax <span style="color:green;">"' + tax +'"</span>'
+   showOutput(html)
+}
+function calculateTax(price,taxRate){
+    var tax =  price * taxRate / 100
+    return tax
+}
+function calculateTotal(price){                          
+  if (price < 1000){
+   var taxRate = 8
+  }else{
+   var taxRate = 16
+  }
+  var tax = calculateTax(price,taxRate)
+  var Total = price + tax
+  return Total
+}        
+function calculateTotalTaxBtn(){                                 // Total Calculate Tax Button //
+   var price = +prompt("Enter Price.")
+   if (!price){
+      alert('Please enter price.')
+      return
+   }
+   var total = calculateTotal(price)
+   let html = 'Total: <span style="color:green;">"' + Math.round(total)  +'"</span>'
+   showOutput(html)
+}
 //-----------------------------Clear Statement-----------------------//
 function clearstatementButton(){
    document.getElementById('originalTextBox').innerHTML = ""
